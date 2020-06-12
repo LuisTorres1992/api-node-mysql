@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/1/musica",
     (req, res) => {
-        dbConn.query('SELECT * FROM canciones_mas_escuchadas', function(err,rows) {
+        dbConn.query('SELECT * FROM Canciones_favoritas_De_Usuarios', function(err,rows) {
             if(err) {
                res.send(err)
             } else {
@@ -19,7 +19,7 @@ app.get("/1/musica",
     });
 app.get("/1/usuarios",
     (req, res) => {
-        dbConn.query('SELECT * FROM reporte_ingreso_usuarios_view', function(err,rows) {
+        dbConn.query('SELECT * FROM Reporte_Canciones_Mas_Escuchadas', function(err,rows) {
             if(err) {
                 res.send(err)
             } else {
@@ -29,7 +29,7 @@ app.get("/1/usuarios",
     });
 app.get("/1/tarjetas",
     (req, res) => {
-        dbConn.query('SELECT * FROM cantidad_tarjetas_registradas', function(err,rows) {
+        dbConn.query('SELECT * FROM ReporteIngresoDeUsuario', function(err,rows) {
             if(err) {
                 res.send(err)
             } else {
@@ -47,6 +47,6 @@ app.use((req, res) => {
     })
 });
 
-app.listen(3000, () => {
+app.listen(81, () => {
     console.log("Servidor ejecutándose...");
 });
